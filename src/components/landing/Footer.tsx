@@ -18,17 +18,6 @@ export default function Footer() {
                         <p className="text-gray-400 max-w-sm leading-relaxed mb-6">
                             {t.footer.description}
                         </p>
-                        <div className="flex gap-4">
-                            <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                                <Twitter className="h-5 w-5" />
-                            </a>
-                            <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                                <Instagram className="h-5 w-5" />
-                            </a>
-                            <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                                <Linkedin className="h-5 w-5" />
-                            </a>
-                        </div>
                     </div>
 
                     <div>
@@ -57,7 +46,7 @@ export default function Footer() {
                         <ul className="space-y-4">
                             <li className="flex items-center gap-3 text-gray-400">
                                 <Mail className="h-5 w-5" />
-                                <span>support@propertyon.sa</span>
+                                <span>support@f4lcon.tech</span>
                             </li>
                         </ul>
                     </div>

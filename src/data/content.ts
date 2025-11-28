@@ -126,7 +126,7 @@ export const content = {
             description: 'A comprehensive cloud system for managing real estate properties. We help you automate your work and increase your efficiency.',
             quickLinks: 'Quick Links',
             contact: 'Contact',
-            rights: '© 2024 PropertyON. All rights reserved.',
+            rights: '© 2025 F4LCON. All rights reserved.',
             privacy: 'Privacy Policy',
             terms: 'Terms of Service',
         },
