@@ -1,19 +1,20 @@
 'use client';
 
-import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Navbar() {
+    const { language, setLanguage, t, dir } = useLanguage();
+    const [isScrolled, setIsScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
-    const { t, language, setLanguage, dir } = useLanguage();
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
+            setIsScrolled(window.scrollY > 20);
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
@@ -24,11 +25,21 @@ export default function Navbar() {
     };
 
     return (
-        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
+        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
             <div className="container-custom flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="text-2xl font-bold text-primary z-50 relative">
-                    Property<span className="text-secondary">ON</span>
+                <Link href="/" className="flex items-center gap-2 group">
+                    <div className="relative w-10 h-10">
+                        <Image
+                            src="/logo.png"
+                            alt="PropertyON Logo"
+                            fill
+                            className="object-contain"
+                        />
+                    </div>
+                    <span className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                        PropertyON
+                    </span>
                 </Link>
 
                 {/* Desktop Menu */}

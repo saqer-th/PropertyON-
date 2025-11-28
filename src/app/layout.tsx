@@ -15,8 +15,13 @@ const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
-  title: "PropertyON | Smart Property Management System",
-  description: "A comprehensive cloud system for real estate offices and landlords. Automate contracts, payments, and maintenance in one place.",
+  title: "PropertyON - Smart Property Management System",
+  description: "Comprehensive cloud system for real estate offices and landlords. Automate contracts, payments, and maintenance.",
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  }
 };
 
 export default function RootLayout({
