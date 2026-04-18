@@ -17,9 +17,9 @@ export default function FAQ() {
                         initial={{ opacity: 0, scale: 0.5 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="mx-auto w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mb-4"
+                        className="mx-auto w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-emerald-100/50"
                     >
-                        <HelpCircle className="w-6 h-6 text-secondary" />
+                        <HelpCircle className="w-7 h-7 text-emerald-600" />
                     </motion.div>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
@@ -48,17 +48,18 @@ export default function FAQ() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="border border-gray-200 rounded-2xl overflow-hidden bg-gray-50/50 hover:bg-white transition-colors duration-300"
+                            className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-[0_2px_15px_-3px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.06)] hover:border-emerald-100 transition-all duration-300 group"
                         >
                             <button
                                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                                className={`flex items-center justify-between w-full p-6 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}
+                                className={`flex items-center justify-between w-full p-6 lg:p-8 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}
                             >
-                                <span className="text-lg font-medium text-gray-900">{faq.question}</span>
-                                <ChevronDown
-                                    className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''
-                                        }`}
-                                />
+                                <span className={`text-lg font-bold transition-colors ${openIndex === index ? 'text-emerald-700' : 'text-gray-900 group-hover:text-emerald-600'}`}>{faq.question}</span>
+                                <div className={`flex items-center justify-center w-8 h-8 rounded-full transition-colors ${openIndex === index ? 'bg-emerald-50 text-emerald-600' : 'bg-gray-50 text-gray-400 group-hover:bg-emerald-50 group-hover:text-emerald-500'}`}>
+                                    <ChevronDown
+                                        className={`w-5 h-5 transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}
+                                    />
+                                </div>
                             </button>
                             <AnimatePresence>
                                 {openIndex === index && (
@@ -68,7 +69,7 @@ export default function FAQ() {
                                         exit={{ height: 0, opacity: 0 }}
                                         transition={{ duration: 0.3 }}
                                     >
-                                        <div className="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                                        <div className="px-6 lg:px-8 pb-6 lg:pb-8 text-gray-600 leading-relaxed pt-2 text-lg">
                                             {faq.answer}
                                         </div>
                                     </motion.div>

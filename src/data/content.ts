@@ -1,146 +1,134 @@
-import { FileText, CreditCard, Wrench, Smartphone, FileSearch, UserCheck, UserPlus, FileSignature, Key } from 'lucide-react';
+import { FileText, CreditCard, Wrench, Smartphone, FileSearch, UserCheck, UserPlus, FileSignature, Key, Activity, LineChart, ShieldCheck } from 'lucide-react';
 
 export const content = {
     en: {
         navbar: {
-            features: 'Features',
+            features: 'Platform',
             howItWorks: 'How it Works',
-            contact: 'Contact',
+            contact: 'Contact Sales',
             login: 'Login',
-            startFree: 'Start Free',
+            startFree: 'Start Free Trial',
+            bookDemo: 'Book a Demo',
         },
         hero: {
-            title: 'Manage Properties Smartly..',
-            subtitle: 'Relax Your Mind',
-            description: 'A comprehensive cloud system for real estate offices and landlords. Complete automation for contracts, payments, and maintenance in one place.',
-            startNow: 'Start Now',
-            contactUs: 'Contact Us',
+            title: 'The Premium Cloud Platform',
+            subtitle: 'for Smart Property Management',
+            description: 'End-to-end automation for Ejar contracts, rent collection, and maintenance. Total control over your real estate portfolio, all in one place.',
+            startNow: 'Start Free Trial',
+            contactUs: 'Book a Demo',
             features: [
-                'Automatic Ejar Contract Reading',
-                'Payment Notifications for Tenant & Landlord',
-                'Comprehensive & Easy Dashboard',
+                'Smart Ejar Integration',
+                'Automated Rent Collection',
+                'Detailed Financial Reports',
             ],
             alerts: {
-                contractExpiry: 'Contract Expiry',
-                contractExpiryDesc: 'Contract #1024 expires in 7 days',
+                contractExpiry: 'Expiring Soon',
+                contractExpiryDesc: 'Al Malqa Villa contract expires in 7 days',
                 paymentDue: 'Payment Due',
-                paymentDueDesc: 'Payment due in 30 days',
+                paymentDueDesc: 'Rent due (SAR 45,000) for Elite Tower',
             }
         },
         features: {
-            title: 'Why PropertyON?',
-            subtitle: 'Everything you need to manage your properties efficiently and professionally in one platform.',
+            title: 'Turn Chaos into Clarity',
+            subtitle: 'Everything you need to manage your properties with enterprise-level precision and ease.',
             comingSoon: 'Coming Soon',
             items: [
                 {
-                    title: 'Contract Management',
-                    description: 'Create and renew unified contracts with a click. The system automatically reads "Ejar" contract data to ensure accuracy.',
-                    icon: FileText,
+                    title: 'Automated Contracts',
+                    description: 'Smart Ejar integration with instant data extraction. Never miss a renewal date again.',
+                    icon: FileSignature,
                     status: 'active'
                 },
                 {
-                    title: 'Payment Management',
-                    description: 'Track payments and invoices in real-time. The system sends reminders to tenants before due dates.',
+                    title: 'Guaranteed Collection',
+                    description: 'Automated WhatsApp reminders and precise overdue tracking. Stop chasing rent manually.',
                     icon: CreditCard,
                     status: 'active'
                 },
                 {
-                    title: 'Maintenance Management',
-                    description: 'Receive maintenance requests from tenants and forward them to maintenance companies directly from the system.',
-                    icon: Wrench,
-                    status: 'coming_soon'
+                    title: 'Financial Clarity',
+                    description: 'Your revenue, expenses, and ROI in one powerful dashboard. Crystal clear reporting.',
+                    icon: LineChart,
+                    status: 'active'
                 },
                 {
-                    title: 'Tenant Access',
-                    description: 'Tenants can access without registration using their mobile number to view contracts and invoices instantly.',
+                    title: 'Digital Archiving',
+                    description: 'Securely store and organize all property documents, IDs, and contracts in one searchable cloud vault.',
+                    icon: FileSearch,
+                    status: 'active'
+                },
+                {
+                    title: 'Tenant Portal',
+                    description: 'Zero-friction access for tenants via mobile number to view invoices and submit requests.',
                     icon: Smartphone,
                     status: 'active'
                 },
                 {
-                    title: 'Landlord Portal',
-                    description: 'Landlords can access the system to view their contracts, payments, and reports as easily as tenants.',
-                    icon: UserCheck,
-                    status: 'active'
-                },
-                {
-                    title: 'Auto Contract Reading',
-                    description: 'Upload the PDF contract and our smart system will extract and populate the data for you. Save time!',
-                    icon: FileSearch,
+                    title: 'Landlord Transparency',
+                    description: 'Give landlords real-time access to their portfolio performance and financial statements.',
+                    icon: ShieldCheck,
                     status: 'active'
                 },
             ]
         },
         howItWorks: {
-            title: 'How it Works?',
-            subtitle: 'Start managing your properties in 4 simple steps.',
+            title: 'Automate in 3 Simple Steps',
+            subtitle: 'From chaos to complete control in minutes.',
             steps: [
                 {
-                    title: 'Register Account',
-                    description: 'Create your account as a landlord or office in seconds.',
+                    title: '1. Register your Office',
+                    description: 'Create your account as a property manager or landlord in seconds.',
                     icon: UserPlus,
                 },
                 {
-                    title: 'Add Properties & Contracts',
-                    description: 'Add your properties and upload Ejar contracts. The system reads them automatically.',
-                    icon: FileSignature,
+                    title: '2. Upload Active Contracts',
+                    description: 'Upload Ejar PDFs. Our AI extracts and maps all dates and financial data instantly.',
+                    icon: FileSearch,
                 },
                 {
-                    title: 'Automated Management',
-                    description: 'The system sends payment reminders and manages maintenance requests.',
-                    icon: CreditCard,
-                },
-                {
-                    title: 'Relax',
-                    description: 'Follow up on everything from your dashboard while you relax.',
-                    icon: Key,
+                    title: '3. Sit Back & Monitor',
+                    description: 'The system automates reminders, tracks payments, and generates your reports.',
+                    icon: Activity,
                 },
             ]
         },
         faq: {
             title: 'Frequently Asked Questions',
-            subtitle: 'Answers to the most common inquiries about PropertyON.',
+            subtitle: 'Everything you need to know about PropertyON.',
             items: [
                 {
                     question: 'Is the system completely free?',
-                    answer: 'Yes, the system is currently free for a limited time for all offices and landlords. You can use all features without any fees.',
+                    answer: 'Yes, PropertyON is currently entirely free for a limited time for all offices and landlords to experience the premium features without risk.',
                 },
                 {
-                    question: 'Can I use the system as a landlord without an office?',
-                    answer: 'Absolutely! PropertyON is designed to serve individual landlords as well. You can register as a landlord and manage your properties, contracts, and tenants yourself.',
+                    question: 'How does the Ejar integration work?',
+                    answer: 'Simply upload the standard PDF contract issued by Ejar. Our proprietary system extracts the tenant name, ID, rent values, and dates automatically.',
                 },
                 {
-                    question: 'How does automatic "Ejar" contract reading work?',
-                    answer: 'Simply upload the contract PDF file issued from the Ejar platform, and our smart system will extract all data (tenant name, rent amount, dates) and store it instantly.',
-                },
-                {
-                    question: 'Does the system support WhatsApp notifications?',
-                    answer: 'Yes, the system sends automatic notifications to tenants for payment due dates, and to landlords when the office receives the payment, via WhatsApp to ensure quick delivery.',
-                },
-                {
-                    question: 'What about maintenance service?',
-                    answer: 'The maintenance management system is currently under development and will be launched very soon. It will allow you to receive maintenance requests from tenants and manage them completely.',
+                    question: 'Does the system send WhatsApp notifications?',
+                    answer: 'Yes! Automated WhatsApp notifications are sent to tenants for upcoming payments, and to landlords when payments are marked as collected.',
                 },
             ]
         },
         footer: {
-            description: 'A comprehensive cloud system for managing real estate properties. We help you automate your work and increase your efficiency.',
+            description: 'The premium cloud backbone for property management in Saudi Arabia.',
             quickLinks: 'Quick Links',
             contact: 'Contact',
-            rights: '© 2025 F4LCON. All rights reserved.',
+            rights: '© 2026 PropertyON. All rights reserved.',
             privacy: 'Privacy Policy',
             terms: 'Terms of Service',
         },
         contactForm: {
-            title: 'Get in Touch',
-            subtitle: 'Have questions? We are here to help.',
+            title: 'Elevate Your Portfolio',
+            subtitle: 'Ready to upgrade your property management? We are here to help.',
             emailLabel: 'Email Us',
             phoneLabel: 'Call Us',
-            workingHours: 'Sun-Thu from 9am to 5pm',
-            name: 'Name',
-            email: 'Email',
-            phone: 'Phone Number',
-            message: 'Message',
-            send: 'Send Message',
+            workingHours: 'Sun-Thu from 9am to 6pm',
+            name: 'Full Name',
+            email: 'Business Email',
+            phone: 'Mobile Number',
+            message: 'How can we help you?',
+            send: 'Send Inquiry',
             sending: 'Sending...',
             success: 'Message sent successfully!',
             error: 'Something went wrong. Please try again.',
@@ -148,147 +136,135 @@ export const content = {
     },
     ar: {
         navbar: {
-            features: 'المميزات',
-            howItWorks: 'كيف يعمل',
-            contact: 'تواصل معنا',
+            features: 'المنصة',
+            howItWorks: 'كيف نعمل',
+            contact: 'المبيعات',
             login: 'تسجيل الدخول',
-            startFree: 'ابدأ مجاناً',
+            startFree: 'ابدأ تجربتك مجاناً',
+            bookDemo: 'تصفح الديمو',
         },
         hero: {
-            title: 'أفضل برنامج إدارة أملاك وعقارات',
-            subtitle: 'نظام سحابي شامل',
-            description: 'نظام PropertyON هو الخيار الأول للمكاتب العقارية والملاك في السعودية. أتمتة كاملة لعقود الإيجار، متابعة المستأجرين، إدارة الدفعات والصيانة في منصة واحدة.',
-            startNow: 'جرب النظام مجاناً',
-            contactUs: 'تواصل معنا',
+            title: 'النظام السحابي الأول لإدارة',
+            subtitle: 'الأملاك والمحافظ العقارية',
+            description: 'أتمتة كاملة لعقود "إيجار"، تحصيل الدفعات، ومتابعة الصيانة. منصة واحدة تمنحك السيطرة الكاملة وراحة البال لمعاملاتك العقارية.',
+            startNow: 'ابدأ تجربتك مجاناً',
+            contactUs: 'احجز جلسة تعريفية',
             features: [
-                'قراءة عقود إيجار تلقائيًا',
-                'تنبيهات سداد للمستأجر والمالك',
-                'لوحة تحكم سهلة وشاملة',
+                'قراءة آلية لعقود منصة إيجار',
+                'تحصيل إيجارات مؤتمت بالكامل',
+                'تقارير مالية مفصلة ودقيقة',
             ],
             alerts: {
-                contractExpiry: 'تنبيه انتهاء عقد',
-                contractExpiryDesc: 'ينتهي عقد #1024 خلال 7 أيام',
-                paymentDue: 'استحقاق دفعة',
-                paymentDueDesc: 'دفعة مستحقة بعد 30 يوم',
+                contractExpiry: 'عقد شارف على الانتهاء',
+                contractExpiryDesc: 'يتبقى ٧ أيام لعقد فيلا حي الملقا',
+                paymentDue: 'دفعة مستحقة',
+                paymentDueDesc: 'إيجار مستحق (٤٥,٠٠٠ ريال) لبرج النخبة',
             }
         },
         features: {
-            title: 'لماذا PropertyON هو أفضل نظام عقاري؟',
-            subtitle: 'كل ما تحتاجه لإدارة عقاراتك بكفاءة واحترافية في منصة واحدة.',
+            title: 'حوّل فوضى الإدارة إلى نظام متكامل',
+            subtitle: 'كل ما تحتاجه لإدارة عقاراتك بدقة واحترافية وبدون أي مجهود يدوي.',
             comingSoon: 'قريباً',
             items: [
                 {
-                    title: 'إدارة عقود الإيجار',
-                    description: 'أنشئ وجدّد العقود الموحدة بضغطة زر. النظام يقرأ بيانات عقود "إيجار" تلقائياً لضمان دقة البيانات وتوفير الوقت.',
-                    icon: FileText,
+                    title: 'أتمتة عقود إيجار',
+                    description: 'ارفع العقد، ونظامنا الذكي يستخرج البيانات، التواريخ والقيمة الإيجارية لحظياً.',
+                    icon: FileSignature,
                     status: 'active'
                 },
                 {
-                    title: 'نظام إدارة الدفعات',
-                    description: 'تابع الدفعات والفواتير أول بأول. يرسل النظام تذكيرات تلقائية للمستأجرين قبل وقت السداد لضمان التحصيل.',
+                    title: 'تحصيل مضمون وإشعارات ذكية',
+                    description: 'رسائل واتساب تلقائية للمستأجرين للتذكير بالسداد. تتبع المبالغ المتأخرة بدقة.',
                     icon: CreditCard,
                     status: 'active'
                 },
                 {
-                    title: 'إدارة الصيانة',
-                    description: 'استقبل طلبات الصيانة من المستأجرين وحولها لشركات الصيانة مباشرة. تتبع حالة الطلب من البداية للنهاية.',
-                    icon: Wrench,
-                    status: 'coming_soon'
+                    title: 'أرقامك واضحة.. تقارير مالية',
+                    description: 'إيراداتك، مصروفاتك، والعائد على الاستثمار، كلها في لوحة تحكم واحدة.',
+                    icon: LineChart,
+                    status: 'active'
                 },
                 {
-                    title: 'بوابة المستأجرين',
-                    description: 'دخول سهل للمستأجرين برقم الجوال للاطلاع على العقود والفواتير وتقديم الطلبات دون الحاجة لتطبيق.',
+                    title: 'أرشفة إلكترونية للوثائق',
+                    description: 'احفظ جميع أوراق العقار، هويات المستأجرين، والعقود في مساحة سحابية آمنة وسهلة البحث.',
+                    icon: FileSearch,
+                    status: 'active'
+                },
+                {
+                    title: 'بوابة المستأجر',
+                    description: 'دخول سريع للمستأجر برقم الجوال للوصول للفواتير وتقديم الطلبات بدون تعقيد.',
                     icon: Smartphone,
                     status: 'active'
                 },
                 {
-                    title: 'بوابة الملاك',
-                    description: 'امنح الملاك صلاحية الدخول لمتابعة عقاراتهم، عقودهم، وتقاريرهم المالية بكل شفافية وسهولة.',
-                    icon: UserCheck,
-                    status: 'active'
-                },
-                {
-                    title: 'أتمتة العقود',
-                    description: 'ارفع ملف العقد PDF والنظام الذكي يستخرج البيانات ويعبيها لك. تقنية متطورة لخدمة المكاتب العقارية.',
-                    icon: FileSearch,
+                    title: 'شفافية كاملة للمُلاك',
+                    description: 'صلاحيات مخصصة للملاك تتيح لهم متابعة أداء المحفظة والدفعات بشكل مباشر.',
+                    icon: ShieldCheck,
                     status: 'active'
                 },
             ]
         },
         howItWorks: {
-            title: 'كيف يعمل برنامج إدارة الأملاك؟',
-            subtitle: 'ابدأ إدارة محفظتك العقارية في 4 خطوات بسيطة.',
+            title: 'أدر أملاكك بثلاث خطوات فقط',
+            subtitle: 'من الإدارة اليدوية المرهقة.. إلى أتمتة كاملة في دقائق معدودة.',
             steps: [
                 {
-                    title: 'سجّل حسابك',
-                    description: 'أنشئ حسابك كمالك أو مكتب عقاري في ثوانٍ وابدأ التجربة المجانية.',
+                    title: '1. أضف العقارات والمكتب',
+                    description: 'صمم هيكل محفظتك العقارية وأنشئ حسابك في ثوانٍ.',
                     icon: UserPlus,
                 },
                 {
-                    title: 'أضف العقارات والعقود',
-                    description: 'أضف وحداتك العقارية وارفع عقود إيجار. النظام يقرأ البيانات تلقائياً.',
-                    icon: FileSignature,
+                    title: '2. ارفع عقودك الحالية',
+                    description: 'ارفع ملفات الـ PDF الخاصة بعقود إيجار وسيقوم النظام بجدولة الدفعات تلقائياً.',
+                    icon: FileSearch,
                 },
                 {
-                    title: 'الإدارة الآلية',
-                    description: 'يقوم النظام بإرسال تذكيرات السداد، الفواتير، وإدارة طلبات الصيانة نيابة عنك.',
-                    icon: CreditCard,
-                },
-                {
-                    title: 'تابع وريّح بالك',
-                    description: 'راقب أداء عقاراتك من لوحة التحكم الشاملة واستمتع براحة البال.',
-                    icon: Key,
+                    title: '3. راقب لوحة التحكم وريّح بالك',
+                    description: 'النظام يرسل التذكيرات ويحدث حالة العقود، وأنت تراقب النمو.',
+                    icon: Activity,
                 },
             ]
         },
         faq: {
-            title: 'الأسئلة الشائعة حول نظام العقار',
-            subtitle: 'إجابات على أكثر الاستفسارات شيوعاً حول PropertyON.',
+            title: 'الأسئلة الشائعة من عملائنا',
+            subtitle: 'إجابات على الاستفسارات الأكثر شيوعاً حول اعتماد PropertyON.',
             items: [
                 {
-                    question: 'هل برنامج إدارة الأملاك مجاني؟',
-                    answer: 'نعم، نظام PropertyON مجاني حالياً لفترة محدودة لجميع المكاتب والملاك. يمكنك استخدام كافة المميزات دون أي رسوم.',
+                    question: 'هل يمكنني تجربة كامل ميزات النظام مجاناً؟',
+                    answer: 'نعم، في الفترة الحالية إطلاق النظام متاح للاستخدام المجاني بالكامل بدون أي قيود على عدد العقود أو العقارات.',
                 },
                 {
-                    question: 'هل يصلح النظام للملاك الأفراد؟',
-                    answer: 'بالتأكيد! PropertyON مصمم ليخدم الملاك الأفراد والمكاتب العقارية على حد سواء. يمكنك إدارة عقاراتك بنفسك بسهولة.',
+                    question: 'كيف تعمل ميزة استخراج البيانات من عقد إيجار؟',
+                    answer: 'تقنية الذكاء الاصطناعي الخاصة بنا تحلل ملف PDF لعقد شبكة إيجار وتستخرج بيانات المستأجر، الدفعات، والتواريخ وتحفظها لك.',
                 },
                 {
-                    question: 'كيف تعمل ميزة قراءة عقود "إيجار"؟',
-                    answer: 'ببساطة، قم بتحميل ملف العقد (PDF) من منصة إيجار، وسيقوم نظامنا باستخراج كافة البيانات (اسم المستأجر، الإيجار، التواريخ) وتخزينها.',
-                },
-                {
-                    question: 'هل يرسل النظام تنبيهات واتساب؟',
-                    answer: 'نعم، يدعم النظام إرسال تنبيهات تلقائية للمستأجرين بمواعيد السداد، وللملاك عند التحصيل، عبر رسائل واتساب.',
-                },
-                {
-                    question: 'متى تتوفر خدمة إدارة الصيانة؟',
-                    answer: 'نظام إدارة الصيانة قيد التطوير وسيتم إطلاقه قريباً. سيمكنك من استقبال وإدارة طلبات الصيانة بشكل كامل.',
+                    question: 'هل فعلاً يرسل النظام رسائل واتساب؟',
+                    answer: 'بالتأكيد، تم ربط النظام لتوجيه إشعارات واتساب تلقائية لتذكير المستأجرين قبل موعد الاستحقاق وعند التأخر.',
                 },
             ]
         },
         footer: {
-            description: 'نظام سحابي متكامل لإدارة الأملاك العقارية في السعودية. نساعدك في أتمتة أعمالك وزيادة كفاءتك.',
+            description: 'العمود الفقري السحابي الأول لإدارة المحافظ العقارية والأملاك في السعودية.',
             quickLinks: 'روابط سريعة',
-            contact: 'تواصل معنا',
-            rights: '© 2025 PropertyON. جميع الحقوق محفوظة.',
+            contact: 'المساعدة',
+            rights: '© 2026 PropertyON. جميع الحقوق محفوظة.',
             privacy: 'سياسة الخصوصية',
             terms: 'الشروط والأحكام',
         },
         contactForm: {
-            title: 'تواصل معنا',
-            subtitle: 'هل لديك استفسار حول برنامج إدارة العقارات؟ نحن هنا للمساعدة.',
-            emailLabel: 'راسلنا',
-            phoneLabel: 'اتصل بنا',
-            workingHours: 'الأحد - الخميس من 9 صباحاً حتى 5 مساءً',
-            name: 'الاسم',
+            title: 'ارتقِ بإدارة محفظتك العقارية',
+            subtitle: 'مستعد لنقل أعمالك لمستوى آخر؟ فريقنا هنا لخدمتك.',
+            emailLabel: 'تواصل معنا إلكترونياً',
+            phoneLabel: 'الخط المباشر',
+            workingHours: 'من الأحد إلى الخميس، ٩ ص - ٦ م',
+            name: 'الاسم كامل',
             email: 'البريد الإلكتروني',
             phone: 'رقم الجوال',
-            message: 'الرسالة',
-            send: 'إرسال الرسالة',
+            message: 'كيف يمكننا مساعدتك؟',
+            send: 'إرسال الطلب',
             sending: 'جاري الإرسال...',
-            success: 'تم إرسال رسالتك بنجاح!',
-            error: 'حدث خطأ ما. يرجى المحاولة مرة أخرى.',
+            success: 'تم الاستلام! سنتواصل معك قريباً.',
+            error: 'حدث خطأ، الرجاء المحاولة مرة أخرى.',
         }
     }
 };

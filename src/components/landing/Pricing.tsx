@@ -1,4 +1,5 @@
 import { Check } from 'lucide-react';
+import Link from 'next/link';
 
 const plans = [
     {
@@ -13,6 +14,7 @@ const plans = [
             'دعم فني أساسي',
         ],
         cta: 'ابدأ مجاناً',
+        link: 'https://app.f4lcon.tech/register-owner',
         popular: false,
     },
     {
@@ -28,6 +30,7 @@ const plans = [
             'دعم فني مميز (أولوية)',
         ],
         cta: 'اشترك الآن',
+        link: 'https://app.f4lcon.tech/register-office',
         popular: true,
     },
     {
@@ -43,6 +46,7 @@ const plans = [
             'API لربط الأنظمة الخاصة',
         ],
         cta: 'تواصل للمبيعات',
+        link: '#contact',
         popular: false,
     },
 ];
@@ -52,57 +56,63 @@ export default function Pricing() {
         <section id="pricing" className="py-20 bg-white">
             <div className="container-custom">
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+                    <div className="mx-auto w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-emerald-100/50">
+                        <Check className="w-7 h-7 text-emerald-600" />
+                    </div>
+                    <h2 className="text-3xl font-extrabold tracking-tight text-primary sm:text-4xl text-center">
                         باقات تناسب الجميع
                     </h2>
-                    <p className="mt-4 text-lg text-gray-600">
+                    <p className="mt-4 text-xl text-gray-600 text-center font-medium">
                         اختر الباقة التي تناسب حجم أعمالك، وابدأ فوراً.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
                     {plans.map((plan, index) => (
                         <div
                             key={index}
-                            className={`relative rounded-2xl p-8 border ${plan.popular
-                                    ? 'border-secondary shadow-xl scale-105 z-10 bg-white'
-                                    : 'border-gray-200 shadow-sm bg-gray-50/50'
+                            className={`relative rounded-3xl p-8 lg:p-10 border transition-all duration-300 ${plan.popular
+                                    ? 'border-emerald-500 shadow-[0_20px_60px_-15px_rgba(16,185,129,0.3)] scale-105 z-10 bg-primary text-white'
+                                    : 'border-gray-200 shadow-sm hover:shadow-lg bg-white mt-4 mb-4'
                                 }`}
                         >
                             {plan.popular && (
-                                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-secondary text-white px-4 py-1 rounded-full text-sm font-medium">
-                                    ✨ موصى به
+                                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-400 to-teal-500 text-white px-5 py-1.5 rounded-full text-sm font-bold shadow-lg">
+                                    ✨ الخيار المفضل
                                 </div>
                             )}
 
-                            <div className="mb-6">
-                                <h3 className="text-xl font-bold text-gray-900">{plan.name}</h3>
-                                <p className="text-sm text-gray-500 mt-2">{plan.target}</p>
+                            <div className="mb-6 text-center">
+                                <h3 className={`text-2xl font-bold ${plan.popular ? 'text-white' : 'text-gray-900'}`}>{plan.name}</h3>
+                                <p className={`text-sm mt-2 font-medium ${plan.popular ? 'text-emerald-100/80' : 'text-gray-500'}`}>{plan.target}</p>
                             </div>
 
-                            <div className="mb-6">
-                                <div className="flex items-baseline gap-1">
-                                    <span className="text-4xl font-bold text-primary">{plan.price}</span>
-                                    {plan.currency && <span className="text-xl text-gray-600">{plan.currency}</span>}
+                            <div className="mb-8 text-center pb-8 border-b border-gray-200/20">
+                                <div className="flex items-baseline justify-center gap-1">
+                                    <span className={`text-5xl font-extrabold font-sans tracking-tight ${plan.popular ? 'text-white' : 'text-primary'}`}>{plan.price}</span>
+                                    {plan.currency && <span className={`text-xl font-bold ${plan.popular ? 'text-gray-300' : 'text-gray-500'}`}>{plan.currency}</span>}
                                 </div>
-                                {plan.period && <p className="text-sm text-gray-500 mt-1">{plan.period}</p>}
+                                {plan.period && <p className={`text-sm mt-2 font-medium ${plan.popular ? 'text-gray-400' : 'text-gray-500'}`}>{plan.period}</p>}
                             </div>
 
-                            <ul className="space-y-4 mb-8">
+                            <ul className="space-y-4 mb-10">
                                 {plan.features.map((feature, idx) => (
                                     <li key={idx} className="flex items-start gap-3">
-                                        <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                                        <span className="text-gray-600 text-sm">{feature}</span>
+                                        <div className={`mt-1 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center ${plan.popular ? 'bg-emerald-500/20 text-emerald-400' : 'bg-emerald-50 text-emerald-600'}`}>
+                                            <Check className="h-3 w-3" strokeWidth={3} />
+                                        </div>
+                                        <span className={`text-base font-medium ${plan.popular ? 'text-gray-300' : 'text-gray-700'}`}>{feature}</span>
                                     </li>
                                 ))}
                             </ul>
 
-                            <button
-                                className={`w-full btn ${plan.popular ? 'btn-primary' : 'btn-secondary'
+                            <Link
+                                href={plan.link}
+                                className={`w-full btn text-center ${plan.popular ? 'btn-primary' : 'btn-secondary'
                                     }`}
                             >
                                 {plan.cta}
-                            </button>
+                            </Link>
                         </div>
                     ))}
                 </div>

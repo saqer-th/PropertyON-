@@ -56,8 +56,8 @@ export default function Contact() {
         <section id="contact" className="py-24 bg-gray-50 relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
-                <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-secondary/5 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
+                <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-emerald-100/30 rounded-full blur-[100px] transform translate-x-1/2 -translate-y-1/2" />
+                <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-teal-100/30 rounded-full blur-[100px] transform -translate-x-1/2 translate-y-1/2" />
             </div>
 
             <div className="container-custom relative z-10">
@@ -145,7 +145,7 @@ export default function Contact() {
                                     required
                                     value={formData.name}
                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-gray-50 focus:bg-white"
+                                    className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all bg-gray-50/50 focus:bg-white text-gray-900 shadow-sm"
                                 />
                             </div>
 
@@ -159,7 +159,7 @@ export default function Contact() {
                                     required
                                     value={formData.email}
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-gray-50 focus:bg-white"
+                                    className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all bg-gray-50/50 focus:bg-white text-gray-900 shadow-sm"
                                 />
                             </div>
 
@@ -172,7 +172,8 @@ export default function Contact() {
                                     id="phone"
                                     value={formData.phone}
                                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-gray-50 focus:bg-white"
+                                    className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all bg-gray-50/50 focus:bg-white text-gray-900 shadow-sm text-left"
+                                    dir="ltr"
                                 />
                             </div>
 
@@ -186,7 +187,7 @@ export default function Contact() {
                                     rows={4}
                                     value={formData.message}
                                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-gray-50 focus:bg-white resize-none"
+                                    className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all bg-gray-50/50 focus:bg-white text-gray-900 shadow-sm resize-none"
                                 />
                             </div>
 

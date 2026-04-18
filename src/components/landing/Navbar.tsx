@@ -25,7 +25,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
+        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/70 backdrop-blur-lg border-b border-gray-200/50 shadow-[0_4px_30px_rgba(0,0,0,0.03)] py-4' : 'bg-transparent py-6'}`}>
             <div className="container-custom flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 group">
@@ -44,20 +44,23 @@ export default function Navbar() {
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex items-center gap-8">
-                    <Link href="#features" className="text-gray-600 hover:text-primary transition-colors">{t.navbar.features}</Link>
-                    <Link href="#how-it-works" className="text-gray-600 hover:text-primary transition-colors">{t.navbar.howItWorks}</Link>
-                    <Link href="#contact" className="text-gray-600 hover:text-primary transition-colors">{t.navbar.contact}</Link>
+                    <Link href="#features" className="text-gray-600 font-medium hover:text-emerald-600 transition-all">{t.navbar.features}</Link>
+                    <Link href="#how-it-works" className="text-gray-600 font-medium hover:text-emerald-600 transition-all">{t.navbar.howItWorks}</Link>
+                    <Link href="#contact" className="text-gray-600 font-medium hover:text-emerald-600 transition-all">{t.navbar.contact}</Link>
                 </div>
 
-                <div className="hidden md:flex items-center gap-4">
+                <div className="hidden md:flex items-center gap-5">
                     <button
                         onClick={toggleLanguage}
-                        className="flex items-center gap-2 text-gray-600 hover:text-primary transition-colors px-3 py-2 rounded-md hover:bg-gray-50"
+                        className="flex items-center gap-2 text-gray-500 hover:text-emerald-600 transition-colors px-3 py-2 rounded-xl hover:bg-emerald-50/50"
                     >
                         <Globe className="w-4 h-4" />
-                        <span className="uppercase text-sm font-medium">{language === 'en' ? 'العربية' : 'English'}</span>
+                        <span className="uppercase text-sm font-bold tracking-wider">{language === 'en' ? 'العربية' : 'English'}</span>
                     </button>
-                    <Link href="https://app.f4lcon.tech/login" className="text-primary font-medium hover:text-primary/80 transition-colors">
+                    <Link href="#demo-mockup" className="text-gray-500 font-medium hover:text-emerald-600 transition-colors bg-gray-50/50 px-3 py-2 rounded-xl border border-gray-100">
+                        {t.navbar.bookDemo}
+                    </Link>
+                    <Link href="https://app.f4lcon.tech/login" className="text-gray-900 font-bold hover:text-emerald-600 transition-colors">
                         {t.navbar.login}
                     </Link>
                     <Link href="https://app.f4lcon.tech/login" className="btn btn-primary">

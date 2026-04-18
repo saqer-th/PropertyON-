@@ -8,12 +8,15 @@ export default function Footer() {
     const { t } = useLanguage();
 
     return (
-        <footer className="bg-gray-900 text-white pt-16 pb-8">
-            <div className="container-custom">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <footer className="bg-primary text-white pt-20 pb-8 border-t border-white/5 relative overflow-hidden">
+            {/* Subtle glow effect */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent"></div>
+            
+            <div className="container-custom relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                     <div className="col-span-1 md:col-span-2">
                         <Link href="/" className="text-2xl font-bold text-white mb-6 block">
-                            Property<span className="text-secondary">ON</span>
+                            Property<span className="text-emerald-500">ON</span>
                         </Link>
                         <p className="text-gray-400 max-w-sm leading-relaxed mb-6">
                             {t.footer.description}
