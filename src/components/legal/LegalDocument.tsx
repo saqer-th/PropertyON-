@@ -1,8 +1,10 @@
 "use client";
 
-import { ArrowLeft, ArrowRight, Languages, Mail, Phone } from "lucide-react";
+import { ArrowLeft, ArrowRight, Languages, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import PropertyONWordmark from "@/components/landing-v2/PropertyONWordmark";
+import { getPropertyONWhatsAppUrl, PROPERTYON_CONTACT } from "@/lib/propertyon-contact";
 import styles from "./LegalDocument.module.css";
 
 type Language = "ar" | "en";
@@ -25,8 +27,8 @@ type LegalCopy = {
   sections: Section[];
 };
 
-const CONTACT_EMAIL = "support@f4lcon.tech";
-const CONTACT_PHONE = "+966 11 507 5727";
+const CONTACT_EMAIL = PROPERTYON_CONTACT.email;
+const CONTACT_PHONE = PROPERTYON_CONTACT.whatsappDisplay;
 
 const privacy: Record<Language, LegalCopy> = {
   ar: {
@@ -136,7 +138,7 @@ const privacy: Record<Language, LegalCopy> = {
         title: "12. التواصل",
         paragraphs: [
           `البريد الإلكتروني: ${CONTACT_EMAIL}`,
-          `الهاتف: ${CONTACT_PHONE}`
+          `واتساب: ${CONTACT_PHONE}`
         ],
         note: "PropertyON في مرحلة الإطلاق المبكر حالياً، وقد يتم تحديث هذا الإشعار مع اكتمال الإطار التشغيلي والقانوني للخدمة."
       }
@@ -247,7 +249,7 @@ const privacy: Record<Language, LegalCopy> = {
         title: "12. Contact",
         paragraphs: [
           `Email: ${CONTACT_EMAIL}`,
-          `Phone: ${CONTACT_PHONE}`
+          `WhatsApp: ${CONTACT_PHONE}`
         ],
         note: "PropertyON is currently in an early-access stage. This notice may be updated as the service's operating and legal framework is finalized."
       }
@@ -371,7 +373,7 @@ const terms: Record<Language, LegalCopy> = {
       {
         id: "contact",
         title: "15. التواصل",
-        paragraphs: [`البريد الإلكتروني: ${CONTACT_EMAIL}`, `الهاتف: ${CONTACT_PHONE}`],
+        paragraphs: [`البريد الإلكتروني: ${CONTACT_EMAIL}`, `واتساب: ${CONTACT_PHONE}`],
         note: "هذه شروط محدودة للموقع والوصول المبكر، وليست بديلاً عن الشروط التجارية النهائية التي ستلزم قبل طرح اشتراكات عامة مدفوعة."
       }
     ]
@@ -491,7 +493,7 @@ const terms: Record<Language, LegalCopy> = {
       {
         id: "contact",
         title: "15. Contact",
-        paragraphs: [`Email: ${CONTACT_EMAIL}`, `Phone: ${CONTACT_PHONE}`],
+        paragraphs: [`Email: ${CONTACT_EMAIL}`, `WhatsApp: ${CONTACT_PHONE}`],
         note: "These are limited website and early-access terms. They are not a substitute for the final commercial terms required before public paid subscriptions are introduced."
       }
     ]
@@ -503,6 +505,7 @@ export default function LegalDocument({ kind }: { kind: DocumentKind }) {
   const rtl = language === "ar";
   const copy = (kind === "privacy" ? privacy : terms)[language];
   const otherHref = kind === "privacy" ? "/terms" : "/privacy";
+  const whatsappUrl = getPropertyONWhatsAppUrl(language);
   const Arrow = rtl ? ArrowLeft : ArrowRight;
 
   useEffect(() => {
@@ -560,7 +563,7 @@ export default function LegalDocument({ kind }: { kind: DocumentKind }) {
         <div><PropertyONWordmark dark /><p>{rtl ? "تشغيل أوضح للمكاتب العقارية." : "Clearer operations for real-estate offices."}</p></div>
         <div className={styles.footerLinks}>
           <a href={`mailto:${CONTACT_EMAIL}`}><Mail aria-hidden="true" />{CONTACT_EMAIL}</a>
-          <a href="tel:+966115075727" dir="ltr"><Phone aria-hidden="true" />{CONTACT_PHONE}</a>
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" dir="ltr"><WhatsAppIcon />{rtl ? "واتساب: " : "WhatsApp: "}{CONTACT_PHONE}</a>
           <a href={otherHref}>{kind === "privacy" ? (rtl ? "شروط الاستخدام والوصول المبكر" : "Website & Early Access Terms") : (rtl ? "إشعار الخصوصية" : "Privacy Notice")}</a>
         </div>
       </footer>

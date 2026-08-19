@@ -2,11 +2,14 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Loader2, Mail, Phone } from 'lucide-react';
+import { Send, Loader2, Mail } from 'lucide-react';
+import WhatsAppIcon from '@/components/icons/WhatsAppIcon';
 import { useLanguage } from '@/context/LanguageContext';
+import { getPropertyONWhatsAppUrl, PROPERTYON_CONTACT } from '@/lib/propertyon-contact';
 
 export default function Contact() {
     const { t, dir } = useLanguage();
+    const whatsappUrl = getPropertyONWhatsAppUrl(dir === 'rtl' ? 'ar' : 'en');
     const [loading, setLoading] = useState(false);
     const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
     const [formData, setFormData] = useState({
@@ -114,12 +117,12 @@ export default function Contact() {
                         >
                             <div className="flex items-start gap-4">
                                 <div className="w-12 h-12 bg-secondary/10 rounded-2xl flex items-center justify-center shrink-0 text-secondary">
-                                    <Phone className="w-6 h-6" />
+                                    <WhatsAppIcon className="w-6 h-6" />
                                 </div>
                                 <div>
                                     <h3 className="text-lg font-semibold text-gray-900 mb-1">{t.contactForm.phoneLabel}</h3>
-                                    <a href="tel:+966115075727" className="text-gray-600 hover:text-secondary transition-colors block" dir="ltr">
-                                        +966 11 507 5727
+                                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-secondary transition-colors block" dir="ltr">
+                                        {PROPERTYON_CONTACT.whatsappDisplay}
                                     </a>
                                     <p className="text-gray-500 text-sm mt-1">{t.contactForm.workingHours}</p>
                                 </div>

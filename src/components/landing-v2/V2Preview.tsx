@@ -26,14 +26,13 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
 import { faqs, PreviewLanguage, proofTabs } from "./content";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
+import { getPropertyONWhatsAppUrl, PROPERTYON_CONTACT } from "@/lib/propertyon-contact";
 import PropertyONWordmark from "./PropertyONWordmark";
 import styles from "./V2Preview.module.css";
 
 const OFFICE_REGISTRATION_URL = "https://app.f4lcon.tech/register-office";
 const LOGIN_URL = "https://app.f4lcon.tech/login";
-const CONTACT_EMAIL = "support@f4lcon.tech";
-const CONTACT_PHONE_HREF = "tel:+966115075727";
-const CONTACT_PHONE_LABEL = "+966 11 507 5727";
 
 type Copy = {
   [key: string]: string | string[];
@@ -108,14 +107,14 @@ const copy: Record<PreviewLanguage, Copy> = {
     commercialEyebrow: "ابدأ مع PropertyON",
     commercialTitle: "ابدأ تشغيل مكتبك على PropertyON.",
     commercialBody: "ابدأ بتجهيز مكتبك واستكشف PropertyON باستخدام تجربة الوصول الحالية، أو تواصل معنا لمناقشة احتياج مكتبك.",
-    talk: "تحدث معنا",
-    contactNote: "تواصل مباشرة مع فريق PropertyON بشأن احتياج مكتبك.",
+    talk: "راسلنا على واتساب",
+    contactNote: "راسلنا مباشرة على واتساب ونساعدك في معرفة كيف يناسب PropertyON مكتبك.",
     faqEyebrow: "أسئلة عالية النية",
     faqTitle: "إجابات واضحة قبل أن تبدأ.",
     finalEyebrow: "الخطوة التالية",
     finalTitle: "اجعل تشغيل مكتبك أوضح من أول عقد إلى آخر تقرير.",
     finalBody: "ابدأ من مساحة عقار حقيقية، ودورة تحصيل موثّقة، وتقارير قابلة للمراجعة—داخل منظومة واحدة مترابطة.",
-    book: "تحدث معنا",
+    book: "راسلنا على واتساب",
     existing: "لديك حساب؟",
     footerLine: "منظومة التشغيل المتصلة للمكاتب العقارية في السعودية.",
     previewNotice: "PropertyON في مرحلة الإطلاق المبكر حالياً، وقد تتطور الميزات وإتاحة الوصول مع استمرار تطوير الخدمة."
@@ -188,14 +187,14 @@ const copy: Record<PreviewLanguage, Copy> = {
     commercialEyebrow: "Start with PropertyON",
     commercialTitle: "Start operating your office on PropertyON.",
     commercialBody: "Prepare your office and explore PropertyON through the current access experience, or talk to us about your office workflow.",
-    talk: "Talk to us",
-    contactNote: "Contact the PropertyON team directly about your office workflow.",
+    talk: "Chat with us on WhatsApp",
+    contactNote: "Message us directly on WhatsApp and we'll help you understand how PropertyON can fit your office.",
     faqEyebrow: "High-intent questions",
     faqTitle: "Clear answers before you begin.",
     finalEyebrow: "Your next step",
     finalTitle: "Make office operations clearer from the first contract to the final report.",
     finalBody: "Start with a real property workspace, a documented collection flow and reviewable reporting—inside one connected operating system.",
-    book: "Talk to us",
+    book: "Chat with us on WhatsApp",
     existing: "Already have an account?",
     footerLine: "The connected operating system for Saudi real-estate offices.",
     previewNotice: "PropertyON is currently in early access. Features and access availability may evolve as the service develops."
@@ -254,6 +253,7 @@ export default function V2Preview() {
   const rtl = language === "ar";
   const Arrow = rtl ? ArrowLeft : ArrowRight;
   const activeProof = proofTabs[language][proof];
+  const whatsappUrl = getPropertyONWhatsAppUrl(language);
 
   useEffect(() => {
     document.documentElement.lang = language;
@@ -649,14 +649,13 @@ export default function V2Preview() {
               <p>{text(c, "commercialBody")}</p>
               <div className={styles.buttonRow}>
                 <a className={styles.primaryButton} href={OFFICE_REGISTRATION_URL}>{text(c, "trial")}<Arrow aria-hidden="true" /></a>
-                <a className={styles.secondaryButton} href={`mailto:${CONTACT_EMAIL}`}>{text(c, "talk")}</a>
+                <a className={styles.secondaryButton} href={whatsappUrl} target="_blank" rel="noopener noreferrer"><WhatsAppIcon />{text(c, "talk")}</a>
               </div>
             </div>
             <aside className={styles.contactCard} aria-label={rtl ? "بيانات التواصل" : "Contact details"}>
               <MessageSquareText aria-hidden="true" />
               <p>{text(c, "contactNote")}</p>
-              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-              <a href={CONTACT_PHONE_HREF} dir="ltr">{CONTACT_PHONE_LABEL}</a>
+              <a className={styles.whatsappContact} href={whatsappUrl} target="_blank" rel="noopener noreferrer" dir="ltr"><WhatsAppIcon />{rtl ? "واتساب: " : "WhatsApp: "}{PROPERTYON_CONTACT.whatsappDisplay}</a>
             </aside>
           </div>
         </section>
@@ -678,7 +677,7 @@ export default function V2Preview() {
             <p className={styles.eyebrow}>{text(c, "finalEyebrow")}</p>
             <h2>{text(c, "finalTitle")}</h2>
             <p>{text(c, "finalBody")}</p>
-            <div className={styles.buttonRow}><a className={styles.primaryButton} href={OFFICE_REGISTRATION_URL}>{text(c, "trial")}</a><a className={styles.darkSecondaryButton} href={`mailto:${CONTACT_EMAIL}`}>{text(c, "book")}</a></div>
+            <div className={styles.buttonRow}><a className={styles.primaryButton} href={OFFICE_REGISTRATION_URL}>{text(c, "trial")}</a><a className={styles.darkSecondaryButton} href={whatsappUrl} target="_blank" rel="noopener noreferrer"><WhatsAppIcon />{text(c, "book")}</a></div>
             <p className={styles.existing}>{text(c, "existing")} <a href={LOGIN_URL}>{text(c, "login")}</a></p>
           </div>
         </section>
@@ -689,9 +688,20 @@ export default function V2Preview() {
           <div className={styles.footerBrand}><PropertyONWordmark dark /><p>{text(c, "footerLine")}</p><small>{text(c, "previewNotice")}</small></div>
           <div><h3>{text(c, "product")}</h3><a href="#product-proof">{text(c, "proofEyebrow")}</a><a href="#smart-import">{text(c, "import")}</a><a href="#collections">{text(c, "collections")}</a></div>
           <div><h3>{rtl ? "الموارد" : "Resources"}</h3><a href="#faq">{rtl ? "الأسئلة الشائعة" : "FAQ"}</a><a href="/privacy">{rtl ? "إشعار الخصوصية" : "Privacy Notice"}</a><a href="/terms">{rtl ? "شروط الاستخدام والوصول المبكر" : "Website & Early Access Terms"}</a></div>
-          <div><h3>{rtl ? "الحساب والتواصل" : "Account & contact"}</h3><a href={OFFICE_REGISTRATION_URL}>{text(c, "trial")}</a><a href={LOGIN_URL}>{text(c, "login")}</a><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></div>
+          <div><h3>{rtl ? "الحساب والتواصل" : "Account & contact"}</h3><a href={OFFICE_REGISTRATION_URL}>{text(c, "trial")}</a><a href={LOGIN_URL}>{text(c, "login")}</a><a href={`mailto:${PROPERTYON_CONTACT.email}`}>{PROPERTYON_CONTACT.email}</a><a className={styles.footerWhatsapp} href={whatsappUrl} target="_blank" rel="noopener noreferrer" dir="ltr"><WhatsAppIcon />{rtl ? "واتساب: " : "WhatsApp: "}{PROPERTYON_CONTACT.whatsappDisplay}</a></div>
         </div>
       </footer>
+
+      <a
+        className={styles.floatingWhatsapp}
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={rtl ? "تواصل معنا عبر واتساب" : "Contact us on WhatsApp"}
+      >
+        <span className={styles.floatingWhatsappLabel}>{rtl ? "راسلنا على واتساب" : "Chat on WhatsApp"}</span>
+        <span className={styles.floatingWhatsappIcon}><WhatsAppIcon /></span>
+      </a>
     </div>
   );
 }
