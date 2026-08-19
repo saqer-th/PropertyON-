@@ -15,72 +15,40 @@ const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.f4lcon.tech"),
   title: {
-    default: "برنامج إدارة الأملاك والعقارات | PropertyON",
+    default: "PropertyON | منظومة تشغيل المكاتب العقارية",
     template: "%s | PropertyON"
   },
-  description: "نظام PropertyON هو الحل الأمثل لإدارة الأملاك والعقارات في السعودية. برنامج سحابي شامل لإدارة عقود الإيجار، متابعة المستأجرين، تحصيل الدفعات، والصيانة.",
-  keywords: ["برنامج إدارة الأملاك", "نظام إدارة العقار", "برنامج إيجارات", "إدارة عقود الإيجار", "برنامج إدارة العقارات للمكاتب", "إدارة المستأجرين", "نظام إدارة الدفعات والعقود", "برنامج عقار سعودي"],
+  description: "PropertyON يربط العقارات والوحدات والعقود وجداول الدفعات والتحصيلات والسندات والمصروفات والتقارير في منظومة تشغيل واحدة للمكاتب العقارية في السعودية.",
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "برنامج إدارة الأملاك والعقارات | PropertyON",
-    description: "أدر عقاراتك بذكاء مع أفضل نظام سحابي لإدارة الأملاك في السعودية. عقود، دفعات، صيانة، وتقارير شاملة.",
-    url: "https://f4lcon.tech",
+    title: "PropertyON | منظومة تشغيل المكاتب العقارية",
+    description: "اربط العقارات والعقود والتحصيلات والسندات والمصروفات والتقارير في منظومة تشغيل واحدة.",
+    url: "https://www.f4lcon.tech/",
     siteName: "PropertyON",
-    images: [
-      {
-        url: "https://f4lcon.tech/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "PropertyON Dashboard",
-      }
-    ],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "PropertyON operating system for Saudi real-estate offices" }],
     locale: "ar_SA",
     type: "website",
   },
-  icons: {
-    icon: '/logo.png',
-    shortcut: '/logo.png',
-    apple: '/logo.png',
-  }
+  twitter: { card: "summary_large_image", title: "PropertyON | منظومة تشغيل المكاتب العقارية", description: "منظومة تشغيل مترابطة للمكاتب العقارية في السعودية.", images: ["/opengraph-image"] }
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": "WebSite",
       "name": "PropertyON",
-      "url": "https://f4lcon.tech",
-      "logo": "https://f4lcon.tech/logo.png",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+966-50-000-0000",
-        "contactType": "customer service",
-        "areaServed": "SA",
-        "availableLanguage": ["Arabic", "English"]
-      },
-      "sameAs": [
-        "https://twitter.com/propertyon",
-        "https://linkedin.com/company/propertyon"
-      ]
+      "url": "https://www.f4lcon.tech/"
     },
     {
       "@type": "SoftwareApplication",
       "name": "PropertyON",
       "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Cloud-based",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "SAR",
-        "description": "Free for a limited time"
-      },
-      "description": "برنامج إدارة أملاك وعقارات سحابي شامل للمكاتب والملاك في السعودية.",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "ratingCount": "150"
-      }
+      "operatingSystem": "Web",
+      "availableLanguage": ["Arabic", "English"],
+      "description": "منظومة تشغيل تربط سجلات وعمليات المكاتب العقارية في السعودية."
     }
   ]
 };

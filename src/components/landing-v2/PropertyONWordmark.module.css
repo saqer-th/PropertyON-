@@ -1,0 +1,19 @@
+.wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  color: #10212b;
+  font-family: var(--font-inter), Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: -.035em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.dark { color: #f7faf9; }
+.on { color: #059669; }
+.dark .on { color: #69e5b4; }
+
+@media (max-width: 639px) {
+  .wordmark { font-size: 19px; }
+}
