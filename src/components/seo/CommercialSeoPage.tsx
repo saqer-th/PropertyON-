@@ -48,22 +48,22 @@ export default function CommercialSeoPage({ page }: { page: SeoPage }) {
                 <p className={styles.lead}>{page.lead}</p>
                 <div className={styles.actions}>
                   <a className={styles.primaryButton} href={REGISTER_URL}>
-                    ابدأ الوصول المبكر <ArrowLeft aria-hidden="true" />
+                    ابدأ مع PropertyON <ArrowLeft aria-hidden="true" />
                   </a>
                   <a className={styles.secondaryButton} href={whatsappUrl} target="_blank" rel="noreferrer">
                     <MessageCircle aria-hidden="true" /> راسلنا على واتساب
                   </a>
                 </div>
-                <p className={styles.earlyAccess}>PropertyON متاح حالياً ضمن الوصول المبكر، ولا توجد أسعار عامة منشورة.</p>
+                <p className={styles.earlyAccess}>الوصول المبكر متاح الآن؛ نتعرّف على احتياج مكتبك قبل البدء.</p>
               </div>
-              <div className={styles.heroSignal} aria-label="نطاق الصفحة">
-                <span>المشتري</span>
-                <strong>مكتب عقاري سعودي</strong>
-                <span>النية</span>
-                <strong>{page.primaryKeyword}</strong>
-                <span>الدليل</span>
-                <strong>واجهة حقيقية من المنتج</strong>
-              </div>
+              <ul className={styles.heroSignal} aria-label="ملخص ما يقدمه هذا الحل">
+                {page.heroHighlights.map((highlight) => (
+                  <li key={highlight.label}>
+                    <span>{highlight.label}</span>
+                    <strong>{highlight.value}</strong>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
@@ -71,7 +71,7 @@ export default function CommercialSeoPage({ page }: { page: SeoPage }) {
         <section className={styles.section}>
           <div className={`${styles.shell} ${styles.twoColumn}`}>
             <div>
-              <p className={styles.sectionLabel}>المشكلة التشغيلية</p>
+              <p className={styles.sectionLabel}>ما الذي يصعّب المتابعة؟</p>
               <h2>{page.problemTitle}</h2>
             </div>
             <div className={styles.prose}>{page.problemParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
@@ -81,6 +81,7 @@ export default function CommercialSeoPage({ page }: { page: SeoPage }) {
         <section className={`${styles.section} ${styles.softSection}`}>
           <div className={`${styles.shell} ${styles.solutionGrid}`}>
             <div className={styles.proofCard}>
+              <span className={styles.proofLabel}>{page.proof.label}</span>
               <Image
                 src={page.proof.src}
                 alt={page.proof.alt}
@@ -103,7 +104,7 @@ export default function CommercialSeoPage({ page }: { page: SeoPage }) {
         <section className={styles.section}>
           <div className={styles.shell}>
             <div className={styles.centerHeading}>
-              <p className={styles.sectionLabel}>المسار العملي</p>
+              <p className={styles.sectionLabel}>كيف يعمل؟</p>
               <h2>{page.workflowTitle}</h2>
             </div>
             <ol className={styles.workflow}>
@@ -121,9 +122,9 @@ export default function CommercialSeoPage({ page }: { page: SeoPage }) {
         <section className={`${styles.section} ${styles.darkSection}`}>
           <div className={`${styles.shell} ${styles.capabilityGrid}`}>
             <div>
-              <p className={styles.sectionLabel}>نطاق المنتج الحالي</p>
+              <p className={styles.sectionLabel}>ما الذي يمكنك متابعته؟</p>
               <h2>{page.capabilitiesTitle}</h2>
-              <p className={styles.darkLead}>قدرات موثقة من المنتج الحالي، من دون تسعير أو تكاملات أو أرقام عملاء غير معتمدة.</p>
+              <p className={styles.darkLead}>{page.capabilitiesLead}</p>
             </div>
             <ul>
               {page.capabilities.map((capability) => <li key={capability}><Check aria-hidden="true" />{capability}</li>)}
@@ -142,8 +143,8 @@ export default function CommercialSeoPage({ page }: { page: SeoPage }) {
         <section className={`${styles.section} ${styles.softSection}`}>
           <div className={styles.shell}>
             <div className={styles.centerHeading}>
-              <p className={styles.sectionLabel}>حلول مرتبطة</p>
-              <h2>تابع المسار التشغيلي من الصفحة الأقرب لاحتياجك</h2>
+              <p className={styles.sectionLabel}>أكمل دورة العمل</p>
+              <h2>{page.relatedTitle}</h2>
             </div>
             <div className={styles.relatedGrid}>
               {page.related.map((slug) => {
@@ -152,7 +153,7 @@ export default function CommercialSeoPage({ page }: { page: SeoPage }) {
                 return (
                   <Link key={slug} href={`/ar/${slug}`}>
                     <span>{related.eyebrow}</span>
-                    <h3>{related.h1}</h3>
+                    <h3>{related.cardTitle}</h3>
                     <p>{related.metaDescription}</p>
                     <strong>استكشف الحل <ArrowLeft aria-hidden="true" /></strong>
                   </Link>
@@ -166,8 +167,8 @@ export default function CommercialSeoPage({ page }: { page: SeoPage }) {
           <div className={`${styles.shell} ${styles.faqGrid}`}>
             <div>
               <p className={styles.sectionLabel}>أسئلة قبل البدء</p>
-              <h2>إجابات مباشرة عن النطاق الحالي</h2>
-              <p>أجبنا عن الحدود التي تؤثر في قرار المكتب، حتى تعرف ما يقدمه المنتج حالياً وما يبقى خارج نطاقه.</p>
+              <h2>{page.faqTitle}</h2>
+              <p>{page.faqIntro}</p>
             </div>
             <div className={styles.faqList}>
               {page.faq.map((item) => (

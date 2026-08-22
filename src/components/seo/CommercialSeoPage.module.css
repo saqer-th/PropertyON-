@@ -51,9 +51,11 @@
 .secondaryButton:hover { border-color: var(--seo-accent); background: #fff; }
 .primaryButton svg, .secondaryButton svg, .darkButton svg { width: 18px; height: 18px; }
 .earlyAccess { margin-block-start: 16px !important; color: #718189; font-size: 13px; }
-.heroSignal { display: grid; grid-template-columns: auto 1fr; gap: 14px 20px; padding: 28px; border: 1px solid rgba(16,33,43,.1); border-radius: 20px; background: rgba(255,255,255,.72); box-shadow: 0 24px 70px rgba(4,15,26,.08); }
-.heroSignal span { color: #718189; font-size: 12px; }
-.heroSignal strong { font-size: 15px; }
+.heroSignal { display: grid; gap: 0; margin: 0; padding: 12px 28px; border: 1px solid rgba(16,33,43,.1); border-radius: 20px; background: rgba(255,255,255,.76); box-shadow: 0 24px 70px rgba(4,15,26,.08); list-style: none; }
+.heroSignal li { display: grid; gap: 5px; padding-block: 18px; }
+.heroSignal li + li { border-block-start: 1px solid rgba(16,33,43,.09); }
+.heroSignal span { color: var(--seo-accent-dark); font-size: 12px; font-weight: 750; }
+.heroSignal strong { font-size: 16px; line-height: 1.65; }
 
 .section { padding: 104px 0; background: #fff; }
 .softSection { background: #f1f4f1; }
@@ -61,7 +63,8 @@
 .section h2 { margin-block-start: 16px; font-size: clamp(36px, 4.2vw, 52px); line-height: 1.3; letter-spacing: -.035em; text-wrap: balance; }
 .prose { display: grid; gap: 20px; color: var(--seo-muted); font-size: 17px; line-height: 2; }
 .solutionGrid { display: grid; grid-template-columns: minmax(0, 6.5fr) minmax(0, 5.5fr); gap: 72px; align-items: center; }
-.proofCard { padding: 10px; border: 1px solid #d6e0dc; border-radius: 22px; background: #fff; box-shadow: 0 22px 60px rgba(4,15,26,.1); }
+.proofCard { position: relative; padding: 10px; border: 1px solid #d6e0dc; border-radius: 22px; background: #fff; box-shadow: 0 22px 60px rgba(4,15,26,.1); }
+.proofLabel { position: absolute; z-index: 2; inset-block-start: 24px; inset-inline-start: 24px; max-width: calc(100% - 48px); padding: 7px 11px; border: 1px solid rgba(255,255,255,.5); border-radius: 999px; color: #fff; background: rgba(4,15,26,.78); backdrop-filter: blur(10px); font-size: 11px; font-weight: 700; }
 .proofImage { width: 100%; height: auto; display: block; border-radius: 15px; }
 .mobileProof { width: min(330px, 76%); height: auto; display: block; margin-inline: auto; border-radius: 22px; }
 .proofCard > p { padding: 15px 10px 8px; color: #667780; font-size: 13px; line-height: 1.75; }
@@ -147,10 +150,9 @@
   .lead { font-size: 17px; }
   .actions { flex-direction: column; }
   .primaryButton, .secondaryButton, .darkButton { width: 100%; }
-  .heroSignal { grid-template-columns: 1fr; }
+  .heroSignal { padding-inline: 22px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .page *, .page *::before, .page *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
-
