@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowLeft,
   ArrowRight,
@@ -104,6 +105,9 @@ const copy: Record<PreviewLanguage, Copy> = {
     localBody: "دليل فعلي من واجهة عربية لسطح المكتب، مساحة عقار متجاوبة على 390×844، وحالة إنجليزية/LTR مؤهلة للمراجعة.",
     localQual: "العربية هي التجربة الأقوى؛ الإنجليزية واسعة لكنها ليست مكتملة بالدرجة نفسها في كل شاشة.",
     evidence: ["RTL / LTR", "SAR", "أرقام ومدن سعودية", "تواريخ بتوقيت الرياض"],
+    solutionsEyebrow: "حلول حسب احتياج المكتب",
+    solutionsTitle: "استكشف PropertyON من المشكلة التي تريد حلها.",
+    solutionsBody: "صفحات مركزة تشرح العقود والتحصيل والسندات والتقارير بواجهات حقيقية وحدود واضحة.",
     commercialEyebrow: "ابدأ مع PropertyON",
     commercialTitle: "ابدأ تشغيل مكتبك على PropertyON.",
     commercialBody: "ابدأ بتجهيز مكتبك واستكشف PropertyON باستخدام تجربة الوصول الحالية، أو تواصل معنا لمناقشة احتياج مكتبك.",
@@ -184,6 +188,9 @@ const copy: Record<PreviewLanguage, Copy> = {
     localBody: "Real evidence from Arabic desktop, a responsive 390×844 property workspace, and a qualified English/LTR review state.",
     localQual: "Arabic is the strongest experience; English is substantial but not equally complete on every screen.",
     evidence: ["RTL / LTR", "SAR", "Saudi phones and cities", "Riyadh-aware dates"],
+    solutionsEyebrow: "Solutions by office need",
+    solutionsTitle: "Explore PropertyON from the problem you need to solve.",
+    solutionsBody: "Focused Arabic pages explain contracts, collections, receipts and reports with real screens and clear limits.",
     commercialEyebrow: "Start with PropertyON",
     commercialTitle: "Start operating your office on PropertyON.",
     commercialBody: "Prepare your office and explore PropertyON through the current access experience, or talk to us about your office workflow.",
@@ -266,6 +273,7 @@ export default function V2Preview() {
 
   useEffect(() => {
     if (!menuOpen) return;
+    const menuTrigger = menuButton.current;
     const prior = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     closeButton.current?.focus();
@@ -288,17 +296,17 @@ export default function V2Preview() {
     return () => {
       document.body.style.overflow = prior;
       window.removeEventListener("keydown", onKey);
-      menuButton.current?.focus();
+      menuTrigger?.focus();
     };
   }, [menuOpen]);
 
   useEffect(() => {
-    setMotionReady(true);
+    const motionFrame = window.requestAnimationFrame(() => setMotionReady(true));
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const revealTargets = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
     if (reduced || !("IntersectionObserver" in window)) {
       revealTargets.forEach((target) => target.setAttribute("data-revealed", "true"));
-      return;
+      return () => window.cancelAnimationFrame(motionFrame);
     }
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
@@ -308,7 +316,10 @@ export default function V2Preview() {
       });
     }, { rootMargin: "0px 0px -10% 0px", threshold: 0.08 });
     revealTargets.forEach((target) => revealObserver.observe(target));
-    return () => revealObserver.disconnect();
+    return () => {
+      window.cancelAnimationFrame(motionFrame);
+      revealObserver.disconnect();
+    };
   }, []);
 
   useEffect(() => {
@@ -638,6 +649,26 @@ export default function V2Preview() {
               <ProductFigure src="/v2/product/english/smart-import-review-en-desktop.png" alt="Qualified real English LTR Smart Import review state" label="English · LTR · qualified" className={styles.englishDevice} />
             </div>
             <ul className={styles.localeEvidence}>{list(c, "evidence").map((item) => <li key={item}><Globe2 />{item}</li>)}</ul>
+          </div>
+        </section>
+
+        <section className={`${styles.section} ${styles.solutionsSection}`} aria-labelledby="seo-solutions-title" data-reveal>
+          <div className={styles.container}>
+            <div className={styles.solutionsIntro}>
+              <div><p className={styles.eyebrow}>{text(c, "solutionsEyebrow")}</p><h2 id="seo-solutions-title">{text(c, "solutionsTitle")}</h2></div>
+              <p>{text(c, "solutionsBody")}</p>
+            </div>
+            <div className={styles.solutionsLinks}>
+              {[
+                ["property-management-software", "برنامج إدارة الأملاك", "Property management software"],
+                ["real-estate-office-software", "برنامج مكتب عقاري", "Real-estate office software"],
+                ["rent-collection-software", "تحصيل الإيجارات", "Rent collection"],
+                ["rental-contract-management", "إدارة عقود الإيجار", "Rental contracts"],
+                ["property-management-reports", "تقارير إدارة العقارات", "Property reports"]
+              ].map(([slug, arLabel, enLabel]) => (
+                <Link key={slug} href={`/ar/${slug}`}>{rtl ? arLabel : enLabel}<Arrow aria-hidden="true" /></Link>
+              ))}
+            </div>
           </div>
         </section>
 

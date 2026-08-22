@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowLeft, ArrowRight, Languages, Mail } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import PropertyONWordmark from "@/components/landing-v2/PropertyONWordmark";
@@ -521,9 +522,9 @@ export default function LegalDocument({ kind }: { kind: DocumentKind }) {
     <div className={styles.page} dir={rtl ? "rtl" : "ltr"}>
       <a className={styles.skipLink} href="#legal-main">{rtl ? "انتقل إلى الوثيقة" : "Skip to document"}</a>
       <header className={styles.header}>
-        <a href="/" aria-label={rtl ? "العودة إلى الصفحة الرئيسية" : "Back to homepage"}><PropertyONWordmark /></a>
+        <Link href="/" aria-label={rtl ? "العودة إلى الصفحة الرئيسية" : "Back to homepage"}><PropertyONWordmark /></Link>
         <div className={styles.headerActions}>
-          <a className={styles.homeLink} href="/"><Arrow aria-hidden="true" />{rtl ? "الصفحة الرئيسية" : "Homepage"}</a>
+          <Link className={styles.homeLink} href="/"><Arrow aria-hidden="true" />{rtl ? "الصفحة الرئيسية" : "Homepage"}</Link>
           <button className={styles.languageButton} onClick={() => setLanguage(rtl ? "en" : "ar")} aria-label={rtl ? "Switch to English" : "التبديل إلى العربية"}>
             <Languages aria-hidden="true" />{rtl ? "EN" : "ع"}
           </button>

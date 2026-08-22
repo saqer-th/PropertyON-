@@ -39,11 +39,13 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "WebSite",
+      "@id": "https://www.f4lcon.tech/#website",
       "name": "PropertyON",
       "url": "https://www.f4lcon.tech/"
     },
     {
       "@type": "SoftwareApplication",
+      "@id": "https://www.f4lcon.tech/#software",
       "name": "PropertyON",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",

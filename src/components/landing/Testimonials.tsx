@@ -51,7 +51,7 @@ export default function Testimonials() {
                                 </div>
                             </div>
                             <p className="text-gray-600 relative z-10">
-                                "{testimonial.comment}"
+                                &ldquo;{testimonial.comment}&rdquo;
                             </p>
                         </div>
                     ))}
